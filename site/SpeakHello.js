@@ -1,6 +1,16 @@
 // STEP 2: Wrap the entire contents of SpeakHello.js inside of an IIFE
 // See Lecture 52, part 2
 
+(function (window) {
+  var YaakovGreeter = {};
+  YaakovGreeter.name = "Yaakov";
+  var greeting = "Hello ";
+  YaakovGreeter.sayHi = function () {
+  	console.log(greeting + YaakovGreeter.name);
+  }
+  window.YaakovGreeter = YaakovGreeter;
+})(window);
+
 
 // STEP 3: Create an object, called 'helloSpeaker' to which you will attach
 // the "speak" method and which you will expose to the global context
@@ -14,7 +24,7 @@ var speakWord = "Hello";
 // helloSpeaker object instead of being a standalone function.
 // See Lecture 52, part 2
 function speak(name) {
-  console.log(speakWord + " " + name);
+  console.log(greeting + "" + name);
 }
 
 // STEP 5: Expose the 'helloSpeaker' object to the global scope. Name it
